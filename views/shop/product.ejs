@@ -10,23 +10,21 @@
 </head>
 <body>
     
-    <div class="card" style="width: 18rem;">
+    <div>
           
 
-        <% prod.forEach(p => { %> 
+        <% products.forEach(product => { %> 
             
-        
-            <div class="card" style="width: 18rem;">
 
-            <div class="card-body">
+            <div>
 
-                <h5 class="card-title"><%= p.title %></h5>
+                <h5 class="card-title"><%= product.title %></h5>
     
-                <p class="card-text"><%= p.description %></p>
-
-                <a href="/product/:<%=p.id %>" class="card-link">product detail</a>
+                <p class="card-text"><%= product.description %></p>
+        
+                <a href="/shop/product-detail/:<%= product.id %>">product detail</a>
             </div>
-            </div>
+            
             
             <% })  %>
     
@@ -34,10 +32,10 @@
       </div>
 
 
+      <!-- <a href="/shop/product-detail/    " class="card-link">product detail</a> -->
 
 
-
-    <%- include ('../includes/footer.ejs') %>
+    
 </body>
 
 

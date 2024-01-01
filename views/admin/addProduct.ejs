@@ -6,70 +6,75 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Document</title>
+    <%- include ('../includes/navigation.ejs') %>
 </head>
 <body>
-    <% if(!editMode) { %>   
+    <% if(editMode) { %>   
 
-    <form action="/admin/add-product" method="POST">
-     
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-        <input type="text" class="form-control" name="title" value= prod.title>
-    </div>
-
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-        <input type="text" class="form-control" name="description" value= prod.description>
-    </div>
-
-    
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-        <input type="number" class="form-control" name="price" value= prod.price>
-    </div>
-
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
-        <input type="number" class="form-control" name="date" value= prod.date>
-    </div>
-    
-    <button type="submit" class="#" >complete edit</button>
-   </form>
+        <form action="/admin/edit-product/:<%= prod.id %>" method="POST">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+                <input type="text" class="form-control" name="title" value= "<%=prod.title %>">
+            </div>
+        
+        
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+                <input type="text" class="form-control" name="description" value= "<%=prod.description %>">
+            </div>
+        
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
+                <input type="number" class="form-control" name="price" value= "<%=prod.price %>">
+            </div>
+        
+        
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
+                <input type="number" class="form-control" name="date" value= "<%=prod.date %>">
+            </div>
+        
+            <button type="submit" class="#" >Complete editing the product!</button>
+        
+             </form>
     <% }
  
      else
     { %>  
       
-    <form action="/admin/edit-product" method="POST">
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-        <input type="text" class="form-control" name="title">
-    </div>
-
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-        <input type="text" class="form-control" name="description">
-    </div>
-
     
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-        <input type="number" class="form-control" name="price">
-    </div>
+
+     <form action="/admin/add-product" method="POST">
+     
+
+     <div class="input-group mb-3">
+         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+         <input type="text" class="form-control" name="title" >
+     </div>
+ 
+ 
+     <div class="input-group mb-3">
+         <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+         <input type="text" class="form-control" name="description">
+     </div>
+ 
+     
+     <div class="input-group mb-3">
+         <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
+         <input type="number" class="form-control" name="price">
+     </div>
+ 
+ 
+     <div class="input-group mb-3">
+         <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
+         <input type="number" class="form-control" name="date">
+     </div>
+     
+     <button type="submit" class="#" >complete Adding new Product!</button>
+    </form>
 
 
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
-        <input type="number" class="form-control" name="date">
-    </div>
-
-    <button type="submit" class="#" >Complete adding new product</button>
-
-     </form>
     <% }
 
     %>

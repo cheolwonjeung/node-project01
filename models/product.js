@@ -4,6 +4,8 @@ const { Sequelize, DataTypes }  = require('sequelize');
 
 const sequelize = require('../utils/database')
 
+const moment = require('moment')
+
 
 
 //creates a table called product and stores the product records 
@@ -11,9 +13,9 @@ const Product = sequelize.define('product', {
   // Model attributes are defined here
   id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    primaryKey: true,
     autoIncrement: true,
-    primaryKey: true
+    allowNull: false
   },
   title: {
     type: DataTypes.STRING,
@@ -30,7 +32,8 @@ const Product = sequelize.define('product', {
   },
   date : {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
+    defaultValue: moment.utc().format('YYYY-MM-DD'),
   }
 
 })

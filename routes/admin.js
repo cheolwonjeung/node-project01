@@ -16,15 +16,20 @@ console.log(adminController);
 router.route("/add-product").post(adminController.postAddProduct); 
 
 
-router.route("/edit-product").post(adminController.postEditProduct); 
+router.route("/edit-product/:productId").post(adminController.postEditProduct); 
 
 
 
 router.route("/add-product").get(adminController.getAddProduct); 
 
 
-router.route("/edit-product").get(adminController.getEditProduct); 
+router.route("/edit-product/:productId").get(adminController.getEditProduct); 
 
+
+router.route("/delete-product").post(adminController.postDeleteProduct); 
+
+
+router.route("/delete-cart").post(adminController.postDeleteCartProduct); 
 
 
   
